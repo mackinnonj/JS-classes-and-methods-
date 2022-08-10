@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object oriented program lab</title>
+</head>
+<body>
+<script>
+// Task 1: Code a Person class
+class Person {
+    constructor(name = "Tom", age = 20, energy = 100) {
+        this.name = name;
+        this.age = age;
+        this.energy = energy;
+        }
+        sleep() {
+            this.energy += 10;
+        }
+        doSomethingFun() {
+            this.energy -= 10;
+        }
+    
+}
+
+// Task 2: Code a Worker class
+class Worker extends Person{
+    constructor(name, age, energy, xp = 0, hourlyWage = 10) {
+        super(name, age, energy)
+        this.xp = xp;
+        this.hourlyWage = hourlyWage
+        }        
+        goToWork(xp){
+            this.xp += 10
+        }
+}
+
+// Task 3: Code an intern object, run methods
+function intern() {
+    var myIntern = new Worker("Bob", 21, 110, 0, 10)
+    myIntern.goToWork()
+    return myIntern
+};
+
+// Task 4: Code a manager object, methods
+function manager() {
+    var myManager = new Worker("Alice", 30, 120, 100, 30) 
+    myManager.doSomethingFun()
+    return myManager;
+};
+
+intern();
+manager();
+
+</script>
+</body>
+</html>
